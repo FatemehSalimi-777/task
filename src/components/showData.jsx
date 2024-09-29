@@ -20,20 +20,24 @@ function ShowData() {
   return (
     <div>
       <h1>Users List</h1>
-      <ul>
-        {showData.map((user) => (
-          <li key={user.id}>
-            <img
-              src={user.avatar}
-              alt={`${user.first_name} ${user.last_name}`}
-            />
-            <p>
-              {user.first_name} {user.last_name}
-            </p>
-            <p>Email: {user.email}</p>
-          </li>
-        ))}
-      </ul>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <ul>
+          {showData.map((user) => (
+            <li key={user.id}>
+              <img
+                src={user.avatar}
+                alt={`${user.first_name} ${user.last_name}`}
+              />
+              <p>
+                {user.first_name} {user.last_name}
+              </p>
+              <p>Email: {user.email}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
